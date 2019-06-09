@@ -1,8 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Clean DDD Architecture Sample";
+    ViewData["Title"] = "DDD Guestbook";
 }
+@model CleanArchitecture.Web.ViewModels.HomePageViewModel
 
-<div class="row">
+<h2>Guestbook: @Model.GuestBookName</h2>
+<h3>Messages:</h3>
+<ol class="round">
+    @if (!Model.PreviousEntries.Any()) {
+
+        <li class="zero">
+            <h5>No messages</h5>
+        </li>
+    }
+    @foreach (var entry in Model.PreviousEntries.OrderByDescending(p =>p.DateTimeCreated)) {
+        <li class="arrow">
+            <h5> @entry.EmailAddress - @entry.DateTimeCreated</h5>
+            @entry.Message
+        </li>
+    }
+</ol>
+
+
+@*<div class="row">
     <div class="col-md-6">
         <h2>To Do Items (MVC)</h2>
         <ul>
@@ -24,4 +43,4 @@
             <li><a href="https://github.com/ardalis">GitHub</a></li>
         </ul>
     </div>
-</div>
+</div>*@
