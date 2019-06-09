@@ -10,5 +10,6 @@ namespace CleanArchitecture.Web.ViewModels
     {
         public string GuestBookName { set; get; }
         public List<GuestbookEntry> PreviousEntries { get; } = new List<GuestbookEntry>();
+        public GuestbookEntry NewEntry { get; set; }
     }
 }
