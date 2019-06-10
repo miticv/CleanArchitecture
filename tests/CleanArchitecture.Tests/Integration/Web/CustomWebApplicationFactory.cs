@@ -33,7 +33,8 @@ namespace CleanArchitecture.Tests.Integration.Web
                 services.AddScoped<IDomainEventDispatcher, NoOpDomainEventDispatcher>();
 
                 // Build the service provider.
-                var sp = services.BuildServiceProvider();
+               // var sp = services.BuildServiceProvider();
+                var sp = Startup.BuildDependencyInjectionProvider(services);
 
                 // Create a scope to obtain a reference to the database
                 // context (AppDbContext).

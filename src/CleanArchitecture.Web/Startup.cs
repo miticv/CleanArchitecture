@@ -51,7 +51,7 @@ namespace CleanArchitecture.Web
             return BuildDependencyInjectionProvider(services);
         }
 
-        private static IServiceProvider BuildDependencyInjectionProvider(IServiceCollection services)
+        public static IServiceProvider BuildDependencyInjectionProvider(IServiceCollection services)
         {
             var builder = new ContainerBuilder();
 
