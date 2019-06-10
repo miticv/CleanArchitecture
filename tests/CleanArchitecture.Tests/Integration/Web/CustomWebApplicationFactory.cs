@@ -29,7 +29,7 @@ namespace CleanArchitecture.Tests.Integration.Web
                     options.UseInternalServiceProvider(serviceProvider);
                 });
 
-                //do not send email while unit testing:
+                //do not send email while unit testing: (not working)
                 services.AddScoped<IDomainEventDispatcher, NoOpDomainEventDispatcher>();
 
                 // Build the service provider.
