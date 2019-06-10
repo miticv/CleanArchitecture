@@ -7,6 +7,16 @@ namespace CleanArchitecture.Web
     {
         public static void PopulateTestData(AppDbContext dbContext)
         {
+
+            var guestbook = new Guestbook() { Name = "Test Guestbook", Id = 1 };
+            dbContext.Guestbooks.Add(guestbook);
+            guestbook.Entries.Add(new GuestbookEntry()
+            {
+                EmailAddress = "test@test.com",
+                Message = "Test message"
+            });
+            dbContext.SaveChanges();
+
             var toDos = dbContext.ToDoItems;
             foreach (var item in toDos)
             {
