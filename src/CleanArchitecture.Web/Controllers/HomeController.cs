@@ -49,7 +49,8 @@ namespace CleanArchitecture.Web.Controllers
                 List<GuestbookEntry> guestbookEntries = _repository.List<GuestbookEntry>();
                 guestbook.Entries.Clear();
                 guestbook.Entries.AddRange(guestbookEntries); // maintain existing Guestbook Entries
-                guestbook.Entries.Add(model.NewEntry);
+
+                guestbook.AddEntry(model.NewEntry);
                 _repository.Update(guestbook);
 
                 model.PreviousEntries.Clear();
